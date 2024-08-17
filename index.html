@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratiksha Teli - Psychologist</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #a3d9a5 0%, #76b583 50%, #569b72 100%); /* Green gradient theme */
+            color: #3e3e3e; /* Dark color for better readability */
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            width: 100%;
+            padding: 50px;
+            gap: 20px; /* Add some space between image and text */
+            background-color: rgba(255, 255, 255, 0.8); /* Add background with transparency */
+            border-radius: 15px; /* Soft rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        .person-image {
+            flex: 1;
+            max-width: 35%; /* Increased the image size */
+            height: auto;
+            object-fit: cover;
+            border-radius: 15px; /* Rounded corners for the image */
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
+        }
+
+        .person-image:hover {
+            transform: scale(1.05); /* Slightly increase the size on hover */
+        }
+
+        .content {
+            flex: 1;
+            padding-left: 50px;
+            text-align: left;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .content h1 {
+            font-size: 3.5rem;
+            color: #3e3e3e; /* Dark color for better readability */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #569b72; /* Green accent color for subheading */
+            font-weight: 500;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #569b72; /* Green accent color for buttons */
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-radius: 30px; /* Fully rounded buttons */
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* Add shadow to buttons */
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .btn:hover {
+            background-color: #76b583; /* Different green accent color on hover */
+            color: #fff;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+            transform: translateY(-3px); /* Button lift on hover */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .content {
+                padding-left: 20px;
+            }
+
+            .content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content h2 {
+                font-size: 1.5rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .person-image {
+                max-width: 80%; /* Larger image on smaller screens */
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Scroll Animation */
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Person Image on the Left Side -->
+        <img src="nobg.png" alt="Person Image" class="person-image scroll-animation">
+        <div class="content scroll-animation">
+            <h1>Pratiksha Teli</h1>
+            <h2>Psychologist</h2>
+            <p>"Offering therapeutic support that is both empathetic and psychologically insightful."</p>
+            <div class="btn-container">
+                <a href="img.html" class="btn">Image Gallery</a>
+                <a href="video.html" class="btn">Video Gallery</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Scroll Animation
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.scroll-animation');
+            const windowHeight = window.innerHeight;
+
+            elements.forEach((element) => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+
+        // Trigger scroll event to apply animation on load
+        window.onload = revealOnScroll;
+    </script>
+
+</body>
+
+</html>
